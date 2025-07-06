@@ -1,0 +1,1 @@
+javac --module-path "/home/vedansh/Documents/javafx-sdk-24/lib/" --add-modules ALL-MODULE-PATH name.java
