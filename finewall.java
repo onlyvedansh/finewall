@@ -58,7 +58,7 @@ import java.io.File;
          Scene scene = new Scene(loadingOuterPane,500,500);
         Stage loadingStage = new Stage ();
         scene.getStylesheets().add(getClass().getResource("finewall.css").toExternalForm());
-
+        
         loadingStage.setResizable(false);
         loadingStage.show();
         
