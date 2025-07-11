@@ -1,6 +1,6 @@
 
-import javafx.scene.control.TextArea;
 import javafx.scene.Parent;
+import javafx.stage.StageStyle;
 
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
@@ -37,6 +37,7 @@ import java.io.File;
     {
    
         Stage mainStage = new Stage();
+       
         mainStage.setTitle("Finewall");
         Pane outerPane = new Pane();
         //outerPane.setLayoutX(50);outerPane.setLayoutY(50); 
@@ -47,6 +48,7 @@ import java.io.File;
         buttonM("About",navBar);
         outerPane.getChildren().add(navBar);
         Scene scene = new Scene (outerPane, 500,500);
+         mainStage.centerOnScreen();
         mainStage.show();
         mainStage.setScene(scene);
 
@@ -56,22 +58,22 @@ import java.io.File;
     {     
          Pane loadingOuterPane  = new Pane();
          Scene scene = new Scene(loadingOuterPane,500,500);
-        Stage loadingStage = new Stage ();
+         Stage loadingStage = new Stage ();
+
+
         scene.getStylesheets().add(getClass().getResource("finewall.css").toExternalForm());
-        
+        Label area = new Label("FineWall");
+        area.setPrefSize(370,100);
+        area.setLayoutX(100); area.setLayoutY(100);
+        loadingOuterPane.getChildren().add(area);
+        loadingStage.initStyle(StageStyle.UNDECORATED);
+        loadingStage.setScene(scene);
         loadingStage.setResizable(false);
+        loadingStage.centerOnScreen();
         loadingStage.show();
-        
-        Pane loadingInnerPane = new Pane ();
-        TextArea email = new TextArea();email.setPromptText("Enter email");
-
-        TextArea password = new TextArea();password.setPromptText("Enter email");
-        loadingOuterPane.getChildren().add(loadingInnerPane);
-        loadingInnerPane.getChildren().addAll(email,password);
-        buttonM("submit",loadingInnerPane);
 
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(e -> {
            loadingStage.close();
             mainWindow();
