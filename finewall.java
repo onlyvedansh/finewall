@@ -35,22 +35,30 @@ import java.io.File;
    }
     void mainWindow()
     {
-   
+
         Stage mainStage = new Stage();
-       
         mainStage.setTitle("Finewall");
         Pane outerPane = new Pane();
-        //outerPane.setLayoutX(50);outerPane.setLayoutY(50); 
-        outerPane.setPrefSize(1000,500);
+        outerPane.setStyle("-fx-background-color :rgb(222, 222, 102)");
+        
+        HBox navBar = new HBox(5);
+        navBar.setLayoutX(2); //navBar.setLayoutY(20); navBar.setPrefSize();
+        buttonM("Home",navBar);
+        buttonM("About",navBar); 
+        buttonM("Tools",navBar);
+        buttonM("More",navBar);
 
-        HBox navBar = new HBox();
-        buttonM("home",navBar);
-        buttonM("About",navBar);
+       
+
+
         outerPane.getChildren().add(navBar);
-        Scene scene = new Scene (outerPane, 500,500);
+        Scene scene = new Scene (outerPane, 1000,500);
+                scene.getStylesheets().add(getClass().getResource("finewall.css").toExternalForm());
+
          mainStage.centerOnScreen();
-        mainStage.show();
+       
         mainStage.setScene(scene);
+         mainStage.show();
 
     }
 
@@ -59,9 +67,7 @@ import java.io.File;
          Pane loadingOuterPane  = new Pane();
          Scene scene = new Scene(loadingOuterPane,500,500);
          Stage loadingStage = new Stage ();
-
-
-        scene.getStylesheets().add(getClass().getResource("finewall.css").toExternalForm());
+         scene.getStylesheets().add(getClass().getResource("finewall.css").toExternalForm());
         Label area = new Label("FineWall");
         area.setPrefSize(370,100);
         area.setLayoutX(100); area.setLayoutY(100);
